@@ -1,11 +1,32 @@
+.divCourseHolder{
+    display: inline-block;
+    box-sizing: border-box;
+}
+
 .divCourse{
     padding: 10px;
     margin: 5px;
-    background-color: antiquewhite;
+    background-color:lightsteelblue;
     width: 250px;
-    height: 100px;
+    height: 130px;
+    background-size: cover;
+    background-blend-mode: soft-light;
 }
 
+.divLabel{
+  height: 95px;
+}
+
+.divLabel:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+  }
+
 label{
+    display: inline-block;
+    vertical-align: bottom;
     color: black;
+    font-size: 18px;
+    font-weight: bold;
 }

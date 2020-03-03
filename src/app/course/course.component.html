@@ -1,7 +1,12 @@
+<div class="divCourseHolder" *ngFor="let course of courses; let i = index">
+    <div class="divCourse" style="background-image: url({{course.image}});">
 
-<div class="divCourse" *ngFor="let course of courses; let i = index">
-    <course-favorite [course]="course" (change)="onFavoriteChange($event)"></course-favorite>
-    <img src="{{course.image}}">
-    <br>
-    <label>{{course.name}}</label>
+        <course-favorite [course]="course" (favoriteClick)="onFavoriteChange($event)"></course-favorite>
+        <br>
+
+        <div class="divLabel">
+            <label>{{course.name}}</label>
+        </div>
+
+    </div>
 </div>

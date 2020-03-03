@@ -8,11 +8,11 @@ import { EventEmitter } from '@angular/core';
 })
 export class CourseFavoriteComponent {
   @Input('course') course
-  @Output() change = new EventEmitter();
+  @Output('favoriteClick') favoriteButton = new EventEmitter();
 
   onClick(){
     this.course.isFavorite = !this.course.isFavorite;
-    this.change.emit(this.course);
+    this.favoriteButton.emit(this.course);
   }
 
 }

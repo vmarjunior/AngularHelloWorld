@@ -14,9 +14,18 @@ export class CourseComponent  {
     this.courses = coursesService.getCourses();
   }
 
-  onFavoriteChange(course){
+  favoriteClick(course){
+    let t = this.courses.find(o => o.id === course.id);
+    t = course;
+    
     console.log(course);
-    this.courses.find(o => o.id === course.id).isFavorite = course.isFavorite;
-    console.log("Favorite Changed.", this.courses);
   }
+
+  likeClick(course){
+    let t = this.courses.find(o => o.id === course.id);
+    t = course;
+    
+    console.log(course);
+  }
+
 }

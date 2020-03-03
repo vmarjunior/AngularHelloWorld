@@ -1,7 +1,9 @@
 
 interface ICourse {
     id: number;
-    isFavorite: boolean;
+    isFavorite?: boolean;
+    isLiked?: boolean;
+    likeCount: number;
     name: string;
     price: number;
     image: string;
@@ -25,11 +27,13 @@ interface ICourse {
 
     private generateCourse(id:number = 0) : ICourse {
         let randomFavorite = Math.random() >= 0.5;
+        let randomLikes = Math.floor(Math.random() * 100);
         let courseName = 'Angular Course ' + (id + 1);
 
         let course: ICourse = {
             id : id,
             isFavorite : randomFavorite,
+            likeCount: randomLikes,
             description : '',
             image : 'assets/images/angularCourse.jpg',
             name : courseName,

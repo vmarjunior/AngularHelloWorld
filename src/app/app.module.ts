@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
 import { CourseFavoriteComponent } from './course-favorite/course-favorite.component';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
+import { CourseLikeComponent } from './course-like/course-like.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseComponent,
     CourseFavoriteComponent,
-    BootstrapPanelComponent
+    BootstrapPanelComponent,
+    CourseLikeComponent
   ],
   imports: [
     BrowserModule,

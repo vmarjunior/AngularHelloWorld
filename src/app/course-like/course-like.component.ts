@@ -1,12 +1,14 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Course } from './../course/course.service';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'course-like',
   templateUrl: './course-like.component.html',
-  styleUrls: ['./course-like.component.css']
+  styleUrls: ['./course-like.component.css'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class CourseLikeComponent {
-  @Input('course') course
+  @Input('course') course : Course
   @Output('likeClick') likeButton = new EventEmitter();
 
   likeClick(){

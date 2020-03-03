@@ -1,5 +1,5 @@
 
-interface ICourse {
+export class Course {
     id: number;
     isFavorite?: boolean;
     isLiked?: boolean;
@@ -8,12 +8,12 @@ interface ICourse {
     price: number;
     image: string;
     description: string;
-  }
+}
 
-  export class CoursesService {
+export class CoursesService {
 
-    getCourses() : ICourse[] {
-        let courses: ICourse[] = [];
+    getCourses(): Course[] {
+        let courses: Course[] = [];
         let coursesCount = 50;
 
         for (let i = 0; i < coursesCount; i++) {
@@ -25,22 +25,22 @@ interface ICourse {
         return courses;
     }
 
-    private generateCourse(id:number = 0) : ICourse {
+    private generateCourse(id: number = 0): Course {
         let randomFavorite = Math.random() >= 0.5;
         let randomLikes = Math.floor(Math.random() * 100);
         let courseName = 'Angular Course ' + (id + 1);
 
-        let course: ICourse = {
-            id : id,
-            isFavorite : randomFavorite,
+        let course: Course = {
+            id: id,
+            isFavorite: randomFavorite,
             likeCount: randomLikes,
-            description : '',
-            image : 'assets/images/angularCourse.jpg',
-            name : courseName,
-            price : 0
+            description: '',
+            image: 'assets/images/angularCourse.jpg',
+            name: courseName,
+            price: 0
         };
 
         return course;
     }
 
-  }
+}

@@ -1,4 +1,4 @@
-import { CoursesService } from './course.service';
+import { CoursesService, Course } from './course.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,20 +8,20 @@ import { Component } from '@angular/core';
 })
 
 export class CourseComponent  {
-  courses;
+  courses: Course[];
 
   constructor(coursesService: CoursesService) { 
     this.courses = coursesService.getCourses();
   }
 
-  favoriteClick(course){
+  favoriteClick(course: Course){
     let t = this.courses.find(o => o.id === course.id);
     t = course;
     
     console.log(course);
   }
 
-  likeClick(course){
+  likeClick(course: Course){
     let t = this.courses.find(o => o.id === course.id);
     t = course;
     

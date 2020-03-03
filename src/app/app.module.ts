@@ -7,12 +7,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
 import { CourseFavoriteComponent } from './course-favorite/course-favorite.component';
+import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseComponent,
-    CourseFavoriteComponent
+    CourseFavoriteComponent,
+    BootstrapPanelComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,11 @@
+.divCourse{
+    padding: 10px;
+    margin: 5px;
+    background-color: antiquewhite;
+    width: 250px;
+    height: 100px;
+}
+
+label{
+    color: black;
+}

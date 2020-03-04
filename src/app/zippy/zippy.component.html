@@ -1,6 +1,6 @@
 <div class="zippy">
     <div class="zippy-heading" (click)="onToggle()">
-        <span class="glyphicon" [class]="isToggled ? 'glyphicon-chevron-down' : 'glyphicon-chevron-right'"></span>
+        <span class="glyphicon" [ngClass]="{'glyphicon-chevron-down' : isToggled, 'glyphicon-chevron-right' : !isToggled}"></span>
         {{title}}
     </div>
     <div class="zippy-body" *ngIf='isToggled'>

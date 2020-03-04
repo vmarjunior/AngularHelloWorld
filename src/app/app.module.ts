@@ -9,6 +9,7 @@ import { CourseComponent } from './course/course.component';
 import { CourseFavoriteComponent } from './course-favorite/course-favorite.component';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 import { CourseLikeComponent } from './course-like/course-like.component';
+import { InputFormatDirective } from './input-format.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CourseLikeComponent } from './course-like/course-like.component';
     CourseComponent,
     CourseFavoriteComponent,
     BootstrapPanelComponent,
-    CourseLikeComponent
+    CourseLikeComponent,
+    InputFormatDirective
   ],
   imports: [
     BrowserModule,

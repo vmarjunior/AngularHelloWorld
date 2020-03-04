@@ -2,12 +2,14 @@
 <br>
 
 <bootstrap-panel>
-
     <ng-container class="heading">
         <h3>Courses Available</h3>
     </ng-container>
     <ng-container class="body">
         <course></course>
     </ng-container>
-
 </bootstrap-panel>
+
+<br>
+<label for="inputDirectiveExample" class="form-group">Custom Directive Example</label>
+<input id="inputDirectiveExample" type="text" class="form-control" [appInputFormat]='uppercase'>

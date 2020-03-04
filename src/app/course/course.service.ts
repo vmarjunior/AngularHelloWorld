@@ -14,7 +14,7 @@ export class CoursesService {
 
     getCourses(): Course[] {
         let courses: Course[] = [];
-        let coursesCount = 50;
+        let coursesCount = 10;
 
         for (let i = 0; i < coursesCount; i++) {
             courses.push(

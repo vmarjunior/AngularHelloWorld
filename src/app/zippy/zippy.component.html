@@ -1,0 +1,9 @@
+<div class="zippy">
+    <div class="zippy-heading" (click)="onToggle()">
+        <span class="glyphicon" [class]="isToggled ? 'glyphicon-chevron-down' : 'glyphicon-chevron-right'"></span>
+        {{title}}
+    </div>
+    <div class="zippy-body" *ngIf='isToggled'>
+        {{title}} Content
+    </div>
+</div>

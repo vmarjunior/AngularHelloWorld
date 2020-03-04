@@ -10,6 +10,7 @@ import { CourseFavoriteComponent } from './course-favorite/course-favorite.compo
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 import { CourseLikeComponent } from './course-like/course-like.component';
 import { InputFormatDirective } from './input-format.directive';
+import { ZippyComponent } from './zippy/zippy.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { InputFormatDirective } from './input-format.directive';
     CourseFavoriteComponent,
     BootstrapPanelComponent,
     CourseLikeComponent,
-    InputFormatDirective
+    InputFormatDirective,
+    ZippyComponent
   ],
   imports: [
     BrowserModule,

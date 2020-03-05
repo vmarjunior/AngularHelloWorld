@@ -1,34 +1,40 @@
 <h2>Hello-World App</h2>
-<br>
+<br />
 
-<bootstrap-panel>
-    <ng-container class="heading">
+<h4>Zippy components example</h4>
+<zippy title="Courses available">
+  <ng-container class="zippy-body">
+    <course></course>
+  </ng-container>
+</zippy>
+<zippy title="Custom directive example">
+  <ng-container class="zippy-body">
+    <bootstrap-panel>
+      <ng-container class="heading">
         <h4>Custom Directive</h4>
-    </ng-container>
-    <ng-container class="body">
-        <label for="inputDirectiveExample" class="form-group">Custom Directive Example (uppercase)</label>
-        <input id="inputDirectiveExample" type="text" class="form-control" [appInputFormat]="'uppercase'">
-    </ng-container>
-</bootstrap-panel>
-
-<br>
-<h4>Zippy component example</h4>
-<zippy title="Course Available">
-    <ng-container class="zippy-body">
-        <course></course>
-    </ng-container>
+      </ng-container>
+      <ng-container class="body">
+        <label for="inputDirectiveExample" class="form-group"
+          >Custom Directive Example (uppercase)</label
+        >
+        <input
+          id="inputDirectiveExample"
+          type="text"
+          class="form-control"
+          [appInputFormat]="'uppercase'"
+        />
+      </ng-container>
+    </bootstrap-panel>
+  </ng-container>
 </zippy>
-<zippy title="Shiping Details">
-    <ng-container class="zippy-body">
-        Shiping Details
-    </ng-container>
+<zippy title="Contact form example">
+  <ng-container class="zippy-body">
+    <h4>Contact form example</h4>
+    <contact-form></contact-form>
+  </ng-container>
 </zippy>
-<zippy title="Billing Details">
-    <ng-container class="zippy-body">
-        Billing Details
-    </ng-container>
+<zippy title="New course form example">
+  <ng-container class="zippy-body">
+    <newcourse-form></newcourse-form>
+  </ng-container>
 </zippy>
-
-<br>
-<h4>Contact form example</h4>
-<contact-form></contact-form>

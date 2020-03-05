@@ -3,11 +3,17 @@ export class Course {
     id: number;
     isFavorite?: boolean;
     isLiked?: boolean;
-    likeCount: number;
+    likeCount?: number;
     name: string;
     price: number;
     image: string;
     description: string;
+    category?: Category;
+}
+
+export class Category{
+  id: number;
+  description: string;
 }
 
 export class CoursesService {

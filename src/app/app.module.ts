@@ -11,6 +11,7 @@ import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.compo
 import { CourseLikeComponent } from './course-like/course-like.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ZippyComponent } from './zippy/zippy.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ZippyComponent } from './zippy/zippy.component';
     BootstrapPanelComponent,
     CourseLikeComponent,
     InputFormatDirective,
-    ZippyComponent
+    ZippyComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,

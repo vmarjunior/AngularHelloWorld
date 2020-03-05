@@ -4,6 +4,6 @@
         {{title}}
     </div>
     <div class="zippy-body" *ngIf='isToggled'>
-        {{title}} Content
+        <ng-content select=".zippy-body"></ng-content>
     </div>
 </div>

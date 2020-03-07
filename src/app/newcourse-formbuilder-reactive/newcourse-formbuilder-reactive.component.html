@@ -1,0 +1,55 @@
+<form [formGroup]="form">
+  <h4>New Course Form Builder Example</h4>
+  <br>
+
+
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" type="text" class="form-control" />
+  </div>
+
+
+  <div formGroupName="contact" class="form-group">
+    <label for="phone">Phone:</label>
+    <input
+      id="phone"
+      formControlName="phone"
+      type="text"
+      class="form-control"
+    />
+    <label for="email">E-mail:</label>
+    <input
+      id="email"
+      formControlName="email"
+      type="text"
+      class="form-control"
+    />
+  </div>
+
+
+  <div class="form-group">
+    <label for="topic">Topic:</label>
+    <input
+      #topic
+      id="topic"
+      type="text"
+      class="form-control"
+      (keyup.enter)="addTopic(topic)"
+    />
+    <ul class="list-group">
+      <li
+        *ngFor="let topic of topics.controls"
+        (click)="removeTopic(topic)"
+        class="list-group-item"
+      >
+        {{ topic.value }}
+      </li>
+    </ul>
+  </div>
+
+
+  <button type="submit" [disabled]="!form.valid" class="btn btn-primary">
+    Save
+  </button>
+
+</form>

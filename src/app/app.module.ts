@@ -15,6 +15,7 @@ import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { NewcourseFormComponent } from './newcourse-form/newcourse-form.component';
 import { NewcourseFormReactiveComponent } from './newcourse-form-reactive/newcourse-form-reactive.component';
+import { NewcourseFormbuilderReactiveComponent } from './newcourse-formbuilder-reactive/newcourse-formbuilder-reactive.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NewcourseFormReactiveComponent } from './newcourse-form-reactive/newcou
     ContactFormComponent,
     NewcourseFormComponent,
     SignupFormComponent,
-    NewcourseFormReactiveComponent
+    NewcourseFormReactiveComponent,
+    NewcourseFormbuilderReactiveComponent
   ],
   imports: [
     BrowserModule,

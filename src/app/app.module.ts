@@ -14,6 +14,7 @@ import { InputFormatDirective } from './input-format.directive';
 import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { NewcourseFormComponent } from './newcourse-form/newcourse-form.component';
+import { NewcourseFormReactiveComponent } from './newcourse-form-reactive/newcourse-form-reactive.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NewcourseFormComponent } from './newcourse-form/newcourse-form.componen
     ZippyComponent,
     ContactFormComponent,
     NewcourseFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    NewcourseFormReactiveComponent
   ],
   imports: [
     BrowserModule,

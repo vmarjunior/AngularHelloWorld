@@ -16,6 +16,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { NewcourseFormComponent } from './newcourse-form/newcourse-form.component';
 import { NewcourseFormReactiveComponent } from './newcourse-form-reactive/newcourse-form-reactive.component';
 import { NewcourseFormbuilderReactiveComponent } from './newcourse-formbuilder-reactive/newcourse-formbuilder-reactive.component';
+import { ChangepasswordFormComponent } from './changepassword-form/changepassword-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NewcourseFormbuilderReactiveComponent } from './newcourse-formbuilder-r
     NewcourseFormComponent,
     SignupFormComponent,
     NewcourseFormReactiveComponent,
-    NewcourseFormbuilderReactiveComponent
+    NewcourseFormbuilderReactiveComponent,
+    ChangepasswordFormComponent
   ],
   imports: [
     BrowserModule,

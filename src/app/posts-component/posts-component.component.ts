@@ -15,7 +15,7 @@ export class PostsComponentComponent implements OnInit {
   constructor(private service: PostService) {}
 
   ngOnInit() {
-    this.service.getPosts().subscribe(
+    this.service.getAll().subscribe(
       response => {
         this.posts = response as Object[];
       }
@@ -24,7 +24,7 @@ export class PostsComponentComponent implements OnInit {
 
   createPost(input: HTMLInputElement) {
     let post = { title: input.value };
-    this.service.createPost(post).subscribe(
+    this.service.create(post).subscribe(
       response => {
         post["id"] = response;
         this.posts.splice(0, 0, post);
@@ -41,7 +41,7 @@ export class PostsComponentComponent implements OnInit {
   }
 
   updatePost(post) {
-    this.service.updatePost(post)
+    this.service.update(post)
     .subscribe(
       response => {
       console.log(response);

@@ -6,10 +6,10 @@ import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "posts-component",
-  templateUrl: "./posts-component.component.html",
-  styleUrls: ["./posts-component.component.css"]
+  templateUrl: "./posts.component.html",
+  styleUrls: ["./posts.component.css"]
 })
-export class PostsComponentComponent implements OnInit {
+export class PostsComponent implements OnInit {
   posts: any[];
 
   constructor(private service: PostService) {}

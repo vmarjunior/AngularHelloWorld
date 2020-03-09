@@ -1,5 +1,5 @@
-import { Course, Category } from './../course/course.service';
 import { Component } from '@angular/core';
+import { Category, Course } from '../services/course.service';
 
 @Component({
   selector: 'newcourse-form',

@@ -6,7 +6,8 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class PostService extends DataService {
+
   constructor(http: HttpClient) {
-    super("https://jsonplaceholder.typicode.com/posts", http);
+    super(http, "https://jsonplaceholder.typicode.com/posts");
   }
 }

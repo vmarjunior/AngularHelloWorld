@@ -1,5 +1,5 @@
-import { Course } from './../course/course.service';
 import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Course } from '../services/course.service';
 
 @Component({
   selector: 'course-like',

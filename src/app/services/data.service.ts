@@ -1,7 +1,7 @@
 import { BadInput } from "./../common/bad-input";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { catchError } from "rxjs/operators";
+import { catchError, map } from "rxjs/operators";
 import { Observable, throwError } from "rxjs";
 import { AppError } from "../common/app-error";
 import { NotFoundError } from "../common/not-found-error";
@@ -10,10 +10,16 @@ import { NotFoundError } from "../common/not-found-error";
   providedIn: "root"
 })
 export class DataService {
-  constructor(private url: string, private http: HttpClient) {}
+
+  private url: string;
+  constructor(private http: HttpClient, public _url: String) {
+    this.url = _url.toString();
+  }
 
   getAll() {
-    return this.http.get(this.url).pipe(catchError(this.handleError));
+    return this.http.get(this.url).pipe(
+      catchError(this.handleError)
+    );
   }
 
   create(resource) {

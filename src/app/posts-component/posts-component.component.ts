@@ -1,47 +1,66 @@
-import { Component } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { BadInput } from "./../common/bad-input";
+import { NotFoundError } from "./../common/not-found-error";
+import { AppError } from "./../common/app-error";
+import { PostService } from "./../services/post.service";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "posts-component",
   templateUrl: "./posts-component.component.html",
   styleUrls: ["./posts-component.component.css"]
 })
-export class PostsComponentComponent {
+export class PostsComponentComponent implements OnInit {
   posts: any[];
-  private url = "https://jsonplaceholder.typicode.com/posts";
 
-  constructor(private http: HttpClient) {
-    http.get(this.url).subscribe(response => {
-      this.posts = response as Object[];
-    });
+  constructor(private service: PostService) {}
+
+  ngOnInit() {
+    this.service.getPosts().subscribe(
+      response => {
+        this.posts = response as Object[];
+      }
+    );
   }
 
   createPost(input: HTMLInputElement) {
     let post = { title: input.value };
-    this.http.post(this.url, JSON.stringify(post)).subscribe(response => {
-      post["id"] = response;
-      this.posts.splice(0, 0, post);
+    this.service.createPost(post).subscribe(
+      response => {
+        post["id"] = response;
+        this.posts.splice(0, 0, post);
+        console.log(response);
+      },
+      (error: AppError) => {
+        if (error instanceof BadInput) {
+          //this.form.setErrors(error.originalError;
+        } else {
+          throw error;
+        }
+      }
+    );
+  }
 
+  updatePost(post) {
+    this.service.updatePost(post)
+    .subscribe(
+      response => {
       console.log(response);
     });
   }
 
-  updatePost(post) {
-    this.http
-      .patch(this.url + "/" + post.id, JSON.stringify({ isRead: true }))
-      .subscribe(response => {
-        console.log(response);
-      });
-
-    //Usually systems only have put method,
-    //but if your API implements patch is better to use as you would win a better performance
-    //this.http.put(this.url, JSON.stringify(post));
-  }
-
   deletePost(post) {
-    this.http.delete(this.url + "/" + post.id).subscribe(response => {
-      let postIndex = this.posts.indexOf(post);
-      this.posts.splice(postIndex, 1);
-    });
+    this.service.deletePost(post.id).subscribe(
+      response => {
+        let postIndex = this.posts.indexOf(post);
+        this.posts.splice(postIndex, 1);
+      },
+      (error: AppError) => {
+        if (error instanceof NotFoundError)
+          alert("This post has already been deleted.");
+        else {
+          throw error;
+        }
+      }
+    );
   }
 }

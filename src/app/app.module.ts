@@ -28,6 +28,8 @@ import { HomeComponent } from "./home/home.component";
 import { GithubProfileComponent } from "./github-profile/github-profile.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { RouterModule } from "@angular/router";
+import { ArchiveComponent } from './archive/archive.component';
+import { ArchivesMenuComponent } from './archives-menu/archives-menu.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { RouterModule } from "@angular/router";
     NavbarComponent,
     HomeComponent,
     GithubProfileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ArchiveComponent,
+    ArchivesMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +65,9 @@ import { RouterModule } from "@angular/router";
       { path: "followers/:id/:username", component: GithubProfileComponent },
       { path: "followers", component: GithubFollowersComponent },
       { path: "posts", component: PostsComponent },
+      { path: "archives/menu", component: ArchivesMenuComponent },
+      { path: "archive/:year/:month", component: ArchiveComponent },
+      { path: "archive", component: ArchiveComponent },
       { path: "**", component: NotFoundComponent }
     ])
   ],

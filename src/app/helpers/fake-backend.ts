@@ -18,7 +18,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     const { url, method, headers, body } = request;
     let token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik1vc2ggSGFtZWRhbmkiLCJhZG1pbiI6dHJ1ZX0.iy8az1ZDe-_hS8GLDKsQKgPHvWpHl0zkQBqy1QIPOkA";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhbGRpckBkb21haW4uY29tIiwicGFzc3dvcmQiOiIxMjM0In0.ZKFaiStR1paMQb02ovpAskZSPFZBOAW4tZCBElmp0vU";
 
     // wrap in delayed observable to simulate server api call
     return of(null)
@@ -51,7 +51,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
       return ok({
         username: email,
-        token: token
+        access_token: token
       });
     }
 
@@ -65,18 +65,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       return throwError({ error: { message } });
     }
 
-    function unauthorized() {
-      return throwError({ status: 401, error: { message: "Unauthorised" } });
-    }
-
-    function isLoggedIn() {
-      return headers.get("Authorization") === "Bearer fake-jwt-token";
-    }
-
-    function idFromUrl() {
-      const urlParts = url.split("/");
-      return parseInt(urlParts[urlParts.length - 1]);
-    }
   }
 }
 

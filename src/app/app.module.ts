@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { GithubService } from "./services/github.service";
 import { AppErrorHandler } from "./common/app-error-handler";
@@ -66,7 +67,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: "", component: HomeComponent },
+      { path: "", component: HomeComponent, canActivate: [AuthGuard] },
       { path: "login", component: LoginComponent },
       { path: "followers/:id/:username", component: GithubProfileComponent },
       { path: "followers", component: GithubFollowersComponent },
@@ -82,7 +83,7 @@ import { JwtModule } from '@auth0/angular-jwt';
         tokenGetter: function  tokenGetter() {
              return     localStorage.getItem('access_token');},
         whitelistedDomains: ['localhost:4200'],
-        blacklistedRoutes: ['http://localhost:4200/auth/login']
+        blacklistedRoutes: ['http://localhost:4200/login']
       }
     })
   ],
@@ -91,6 +92,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     PostService,
     GithubService,
     AuthService,
+    AuthGuard,
     { provide: ErrorHandler, useClass: AppErrorHandler },
 
     //Fake backend provider found in app/helpers

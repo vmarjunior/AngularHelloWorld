@@ -1,17 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { JwtModule } from '@auth0/angular-jwt';
+import { JwtHelperService } from "@auth0/angular-jwt";
 import { map } from "rxjs/operators";
 
 @Injectable()
 export class AuthService {
+  jwt = new JwtHelperService();
   currentUser: any;
 
   constructor(private http: HttpClient) {
     let token = localStorage.getItem('access_token');
     if (token) {
-      //let jwt= JwtModule.forRoot(null);
-      //this.currentUser = jwt.decodeToken(token);
+      this.currentUser = this.jwt.decodeToken(token);
     }
   }
 
@@ -21,8 +21,8 @@ export class AuthService {
     map(response => {
       let result = response;
 
-      if (result && result['token']) {
-        localStorage.setItem('token', result['token']);
+      if (result && result['access_token']) {
+        localStorage.setItem('access_token', result['access_token']);
 
         return true;
       }
@@ -31,12 +31,17 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem('access_token');
     this.currentUser = null;
   }
 
   isLoggedIn() {
-    //return tokenNotExpired('token');
+    let token = localStorage.getItem("access_token");
+
+    if (token)
+    return !this.jwt.isTokenExpired(token);
+
+    return false;
   }
 }
 

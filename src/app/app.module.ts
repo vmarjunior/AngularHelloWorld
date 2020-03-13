@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { GithubService } from "./services/github.service";
 import { AppErrorHandler } from "./common/app-error-handler";
 import { PostService } from "./services/post.service";
@@ -30,6 +31,9 @@ import { NotFoundComponent } from "./not-found/not-found.component";
 import { RouterModule } from "@angular/router";
 import { ArchiveComponent } from './archive/archive.component';
 import { ArchivesMenuComponent } from './archives-menu/archives-menu.component';
+import { LoginComponent } from './login/login.component';
+import { fakeBackendProvider } from './helpers/fake-backend';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,8 @@ import { ArchivesMenuComponent } from './archives-menu/archives-menu.component';
     GithubProfileComponent,
     NotFoundComponent,
     ArchiveComponent,
-    ArchivesMenuComponent
+    ArchivesMenuComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +67,7 @@ import { ArchivesMenuComponent } from './archives-menu/archives-menu.component';
     HttpClientModule,
     RouterModule.forRoot([
       { path: "", component: HomeComponent },
+      { path: "login", component: LoginComponent },
       { path: "followers/:id/:username", component: GithubProfileComponent },
       { path: "followers", component: GithubFollowersComponent },
       { path: "posts", component: PostsComponent },
@@ -69,13 +75,26 @@ import { ArchivesMenuComponent } from './archives-menu/archives-menu.component';
       { path: "archive/:year/:month", component: ArchiveComponent },
       { path: "archive", component: ArchiveComponent },
       { path: "**", component: NotFoundComponent }
-    ])
+    ]),
+
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function  tokenGetter() {
+             return     localStorage.getItem('access_token');},
+        whitelistedDomains: ['localhost:4200'],
+        blacklistedRoutes: ['http://localhost:4200/auth/login']
+      }
+    })
   ],
   providers: [
     CoursesService,
     PostService,
     GithubService,
-    { provide: ErrorHandler, useClass: AppErrorHandler }
+    AuthService,
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+
+    //Fake backend provider found in app/helpers
+    fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })

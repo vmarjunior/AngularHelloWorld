@@ -1,18 +1,12 @@
 import { NotFoundError } from './../common/not-found-error';
 import { BadInput } from "./../common/bad-input";
-import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { catchError, map } from "rxjs/operators";
 import { throwError } from "rxjs";
 import { AppError } from "../common/app-error";
 
-@Injectable({
-  providedIn: "root"
-})
 export class DataService {
-  private url: string;
-  constructor(private http: HttpClient, public _url: String) {
-    this.url = _url.toString();
+  constructor(private http: HttpClient, private url: string) {
   }
 
   getAll() {
